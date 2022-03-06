@@ -1,4 +1,3 @@
-#https://pysource.com/2021/10/19/simple-color-recognition-with-opencv-and-python/
 import cv2
 import numpy as np
 
