@@ -1,6 +1,6 @@
 import cv2
 
-cap = cv2.VideoCapture('.\src\carroazul3.jpg')
+cap = cv2.VideoCapture('.\src\placa4.jpg')
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
 
@@ -13,7 +13,7 @@ while True:
     cx = int((width / 2) - 50)
     cy = int((height / 2.5) - 10)
 
-    #pick pixel value
+
     pixel_center = hsv_frame[cy, cx]
     h_value = pixel_center[0]
     s_value = pixel_center[1]
