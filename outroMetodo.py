@@ -1,29 +1,30 @@
-import distutils.command.install_lib
-
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
 import utils
 import cv2
+import numpy as np
 
 
 image = cv2.imread('.\src\carroprata1.jpg')
 image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
 
+#extrai informações da altura e largura da imagem
+height, width, _ = np.shape(image)
+
 plt.figure()
 plt.imshow(image)
 
 
-
-# reshape the image to be a list of pixels
-image2 = image.reshape((image.shape[0] * image.shape[1], 3))
+# reshape da imagem para ser uma lista de pixels (uma matriz com linhas = [altura*width] colunas = 3 (rgb)
+image2 = image.reshape((height * width, 3))
 
 # quantidade de clusters
-clt = KMeans(n_clusters = 3)
+clt = KMeans(n_clusters = 1)
 clt.fit(image2)
 
-# cria um histograma de clusters e entao cria uma figure
-# representa o número de pixels rotulados para cada cor
+# cria um histograma de clusters e entao cria uma figura
+# que representa o número de pixels rotulados para cada cor
 hist = utils.centroid_histogram(clt)
 bar = utils.plot_colors(hist, clt.cluster_centers_)
 
@@ -41,8 +42,8 @@ hsv_frame = cv2.cvtColor(bar, cv2.COLOR_RGB2HSV)
 
 height, width, _ = bar.shape
 
-cx = int((width / 2) - 50)
-cy = int((height / 2.5) - 10)
+cx = int((width / 2))
+cy = int((height / 2))
 
 
 pixel_center = hsv_frame[cy, cx]
@@ -74,6 +75,7 @@ elif (h_value >= 149) and (h_value <= 169):
 	color = "ROSA"
 else:
 	color = "Nao identificado"
+
 
 
 print(color)
