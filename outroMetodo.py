@@ -54,9 +54,9 @@ v_value = pixel_center[2]
 
 
 
-if (s_value <= 20) and (v_value >= 217):
+if (s_value <= 20) and (v_value >= 230):
 	cor = "BRANCO"
-elif (v_value < 217) and (s_value <= 57):
+elif (v_value < 230) and (s_value <= 57):
 	cor = "PRATA"
 elif (v_value < 57):
 	cor = "PRETO"

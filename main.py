@@ -26,7 +26,7 @@ while True:
         color = "BRANCO"
     elif (v_value < 230) and (s_value <= 57):
         color = "PRATA"
-    elif (v_value < 65):
+    elif (v_value < 57):
         color = "PRETO"
     elif (h_value <= 7) or (h_value >= 170):
         color = "VERMELHO"
