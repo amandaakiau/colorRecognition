@@ -5,15 +5,15 @@ import cv2
 import numpy as np
 
 
-image = cv2.imread('.\src\carroverde.jpg')
+image = cv2.imread('.\src\carroazul.jpg')
 image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
 
 #extrai informações da altura e largura da imagem
 height, width, _ = np.shape(image)
 
-#plt.figure()
-#plt.imshow(image)
+plt.figure()
+plt.imshow(image)
 
 
 # reshape da imagem para ser uma lista de pixels (uma matriz com linhas = [altura*width] colunas = 3 (rgb)
