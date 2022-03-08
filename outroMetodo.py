@@ -5,15 +5,14 @@ import cv2
 import numpy as np
 
 
-image = cv2.imread('.\src\carroprata1.jpg')
-image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+image = cv2.imread('.\src\placa4.jpg')
 
 
 #extrai informações da altura e largura da imagem
 height, width, _ = np.shape(image)
 
-plt.figure()
-plt.imshow(image)
+#plt.figure()
+#plt.imshow(image)
 
 
 # reshape da imagem para ser uma lista de pixels (uma matriz com linhas = [altura*width] colunas = 3 (rgb)
@@ -38,7 +37,7 @@ plt.show()
 ############ identifica a cor de um pixel (mesma logica do codigo main)
 
 
-hsv_frame = cv2.cvtColor(bar, cv2.COLOR_RGB2HSV)
+hsv_frame = cv2.cvtColor(bar, cv2.COLOR_BGR2HSV)
 
 height, width, _ = bar.shape
 
@@ -53,29 +52,29 @@ v_value = pixel_center[2]
 
 
 
-if (s_value <= 40) and (v_value <= 227):
-	color = "PRATA"
-elif v_value <= 43:
-	color = "PRETO"
-elif s_value <= 44:
-	color = "BRANCO"
+if (s_value <= 20) and (v_value >= 217):
+	cor = "BRANCO"
+elif (v_value < 217) and (s_value <= 57):
+	cor = "PRATA"
+elif (v_value < 57):
+	cor = "PRETO"
 elif (h_value <= 7) or (h_value >= 170):
-	color = "VERMELHO"
+	cor = "VERMELHO"
 elif (h_value >= 8) and (h_value <= 20):
-	color = "LARANJA"
+	cor = "LARANJA"
 elif (h_value >= 21) and (h_value <= 35):
-	color = "AMARELO"
+	cor = "AMARELO"
 elif (h_value >= 36) and (h_value <= 84):
-	color = "VERDE"
+	cor = "VERDE"
 elif (h_value >= 85) and (h_value <= 133):
-	color = "AZUL"
+	cor = "AZUL"
 elif (h_value >= 134) and (h_value <= 148):
-	color = "VIOLETA"
+	cor = "VIOLETA"
 elif (h_value >= 149) and (h_value <= 169):
-	color = "ROSA"
+	cor = "ROSA"
 else:
-	color = "Nao identificado"
+	cor = "Nao identificado"
 
 
 
-print(color)
+print(cor)

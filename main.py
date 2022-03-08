@@ -1,6 +1,6 @@
 import cv2
 
-cap = cv2.VideoCapture('.\src\placa4.jpg')
+cap = cv2.VideoCapture('.\src\carroprata6.jpg')
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
 
@@ -15,19 +15,22 @@ while True:
 
 
     pixel_center = hsv_frame[cy, cx]
+
+    
+
     h_value = pixel_center[0]
     s_value = pixel_center[1]
     v_value = pixel_center[2]
 
-    if (s_value <= 40) and (v_value <= 227):
-        color = "PRATA"
-    elif v_value <= 43:
-        color = "PRETO"
-    elif s_value <= 44:
+    if (s_value <= 20) and (v_value >= 230):
         color = "BRANCO"
+    elif (v_value < 230) and (s_value <= 57):
+        color = "PRATA"
+    elif (v_value < 65):
+        color = "PRETO"
     elif (h_value <= 7) or (h_value >= 170):
         color = "VERMELHO"
-    elif (h_value >= 8) and (h_value <= 20):
+    elif (h_value >= 8) and (h_value <= 20): 
         color = "LARANJA"
     elif (h_value >= 21) and (h_value <= 35):
         color = "AMARELO"
