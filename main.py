@@ -1,6 +1,6 @@
 import cv2
 
-cap = cv2.VideoCapture('.\src\carroprata6.jpg')
+cap = cv2.VideoCapture('.\src\carrovermelho.jpg')
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
 

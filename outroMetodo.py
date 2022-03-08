@@ -5,7 +5,8 @@ import cv2
 import numpy as np
 
 
-image = cv2.imread('.\src\placa4.jpg')
+image = cv2.imread('.\src\carroverde.jpg')
+image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
 
 #extrai informações da altura e largura da imagem
@@ -37,7 +38,8 @@ plt.show()
 ############ identifica a cor de um pixel (mesma logica do codigo main)
 
 
-hsv_frame = cv2.cvtColor(bar, cv2.COLOR_BGR2HSV)
+#hsv_frame = cv2.cvtColor(bar, cv2.COLOR_BGR2HSV)
+hsv_frame = cv2.cvtColor(bar, cv2.COLOR_RGB2HSV)
 
 height, width, _ = bar.shape
 
